@@ -1,9 +1,0 @@
-<h1><%= petition.title %></h1>
-<p><%= petition.description %></p>
-<p>Голосів: <%= petition.votes %></p>
-
-<form method="POST" action="/petition/vote/<%= petition.id %>">
-  <button type="submit">Голосувати</button>
-</form>
-
-<a href="/">← Назад</a>
