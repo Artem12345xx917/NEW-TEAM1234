@@ -1,0 +1,16 @@
+<h1>Список петицій</h1>
+<ul>
+  <% petitions.forEach(p => { %>
+    <li>
+      <a href="<%= p.url %>"><%= p.title %></a> — Голосів: <%= p.votes %>
+      [<a href="/petition/delete/<%= p.id %>">Видалити</a>]
+    </li>
+  <% }) %>
+</ul>
+
+<h2>Нова петиція</h2>
+<form method="POST" action="/petition">
+  <input name="title" placeholder="Заголовок" required /><br/>
+  <textarea name="description" placeholder="Опис" required></textarea><br/>
+  <button type="submit">Створити</button>
+</form>
