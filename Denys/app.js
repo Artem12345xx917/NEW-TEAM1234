@@ -1,15 +1,15 @@
 const express = require('express');
 
+const adminRoutes = require('./routes/admin.js');
+const shopRoutes = require('./routes/shop.js');
+
+const bodyParser = require('body-parser');
+
 const app = express();
 
-app.use('/surprize', (req, res, next) => {
-    console.log('Middleware 1: Request received');
-    res.send('<h1>Kurwa Bobre!!</h1>');
-})
+app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use('/', (req, res, next) => {
-    console.log('Middleware 2: Processing request');
-    res.send('<h1>SLAVA UKRAINI!</h1>');
-})
+app.use(adminRoutes);
+app.use(shopRoutes);
 
 app.listen(3000);
